@@ -46,8 +46,16 @@ $result = $koneksi->query("SELECT * FROM mahasiswa ORDER BY angkatan DESC");
   <div class="card p-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h3 class="fw-bold text-dark mb-0">Daftar Mahasiswa</h3>
-      <a href="#" class="btn btn-primary">+ Tambah Data</a>
+      <a href="tambah.php" class="btn btn-primary">+ Tambah Data</a>
     </div>
+
+    <!-- Alert jika sukses tambah -->
+    <?php if (isset($_GET['status']) && $_GET['status'] == 'sukses'): ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        ✅ Data mahasiswa berhasil ditambahkan.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      </div>
+    <?php endif; ?>
 
     <div class="table-responsive">
       <table class="table table-bordered align-middle">
